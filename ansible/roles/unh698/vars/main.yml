@@ -1,5 +1,5 @@
 ---
 # Here we define variables in a key: value setting
 # that will be used in the unh698 role.
-unh698_image: sdt1001/docker-cloud-test
+unh698_image: sdt1001/final-project
 unh698_command: python3 unh698.py
