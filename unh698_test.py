@@ -23,9 +23,17 @@ class FlaskrTestCase(unittest.TestCase):
         #replace XXXXXXX with text you expect to see on main page that links to subpage
         assert b'Asia' in rv.data
 
+    def test_link_to_my_second_page(self):
+        rv = self.app.get('/')
+        assert b'Africa' in rv.data
+
     def test_my_topic(self):
         rv = self.app.get('/topic_page')
         assert b'Topic' in rv.data
+
+    def test_my_topic_two(self):
+        rv = self.app.get('/topictwo_page')
+        assert b'Topic Two' in rv.data
 
 if __name__ == '__main__':
     unittest.main()
