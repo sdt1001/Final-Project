@@ -97,3 +97,35 @@ If, for whatever reason, you need to pull the latest copy of your public image, 
 Now start a container using the public image:
 	
 	sudo docker run -d -p 8080:8080 sdt1001/final-project python3 unh698.py
+
+	-d option runs the container in the background & prints container ID
+returns “9f54f0be98f9e36b72d4cfae5fc78f6f7123b227a6d40a5a70e5330036412f2d”
+OR if you have run this command previously and it generated an error that was fixed, now the Bind for 0.0.0.0:8080 will fail as the port is already allocated.
+
+That’s ok. Do the following:
+
+docker ps -a
+
+Look at the containers that come up. Whichever container ID has “0.0.0.0:8080->8080/tcp” needs to be stopped. Within that container is a name assigned to that container, say “gigantic_bassi” (it will be the last entry for any given container). You must stop this container with the following:
+docker stop gigantic_bassi (whatever the name of the container is) this returns the name of the container that has just been stopped
+
+Now do another docker ps -a and note that the port for that container is now empty. 
+Perform another “sudo docker run….” (like above)
+
+In a web browser, type in http://54.215.133.212:8080 and your page should appear.
+
+MULTIPLE CONTAINERS
+
+When using a newer release, say 0.0.2, replace the currently running container with one pinned at the new release number with the following commands within the AWS instance:
+	
+	docker ps
+	
+	docker stop happy_darwin (where happy_darwin was the name of the instance)
+
+Running the Ansible Playbooks with the following commands:
+
+	ansible-playbook deploy-website-production.yml -v
+	
+	ansible-playbook deploy-website-staging.yml -v
+
+Utilizing the link just above “MULTIPLE CONTAINERS”, the production instance should be available on the host’s port 8080 while the staging instance should be available on the host’s port 8081.

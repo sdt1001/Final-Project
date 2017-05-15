@@ -7,7 +7,7 @@
   become: true
   vars:
     unh698_environment: production
-    unh698_image_version: release-0.0.3
+    unh698_image_version: release-0.0.1
     unh698_host_port: 8080
     unh698_container_port: 8080
   roles:
