@@ -12,5 +12,9 @@ def indexPage():
 def topicPage():
 	return render_template('topic.html')
 
+@app.route('/topictwo_page')
+def topicPageTwo():
+	return render_template('topictwo.html')
+
 if __name__ == "__main__":
 	app.run(debug=True,host='0.0.0.0', port=8080)

@@ -2,7 +2,7 @@
 # The production version of docker-cloud-test should be the image that has just
 # a main page with the 'UNH698 Website' text.  This version of the website
 # should be available on port 8080 of your server.
-- name: Deploy the production version of your website based on the previous tag of your docker-cloud-test image
+- name: Deploy the production version of your website based on the previous tag of your final-project image
   hosts: localhost
   become: true
   vars:
